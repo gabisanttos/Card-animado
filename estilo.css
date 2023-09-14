@@ -1,0 +1,76 @@
+*{ /*é um seletor universal que seleciona **todos os elementos** em uma página HTML*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(105, 37, 37);
+    font-family: 'Constantia';
+    position: relative;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px; 
+    cursor: pointer;
+}
+  
+.card-interior {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+  
+.card:hover .card-interior {
+    transform: rotateY(180deg); /*define uma transformação que gira um elemento em torno do eixo y (vertical) sem deformá-lo*/
+}
+  
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* determina se a face de trás de um elemento é visível ou não para o usuário,  Quando definida como 'hidden', a face de trás do elemento é ocultada*/
+    border-radius: 10px;
+}
+  
+.card-front {
+    overflow: hidden; /* é usada para controlar o comportamento do conteúdo que é maior do que a área designada para ele*/ /*hidden: O conteúdo é cortado e o restante do conteúdo é ocultado*/
+}
+.card-front img{
+    max-height: 100%;
+}
+.card-back {
+    background-color: #555;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.card-conteudo {
+    padding: 20px; /*Define uma distância entre o conteúdo de um elemento e suas bordas*/
+    text-align: center;
+}
+  
+.card-conteudo h2 {
+    font-size: 24px;
+    margin-bottom: 10px; /*Margin-bottom define a margin area na parte inferior de um elemento*/
+}
+  
+.card-conteudo p {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+  
